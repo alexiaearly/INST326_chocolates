@@ -5,6 +5,6 @@ def winner(score):
         print("You are the winner")
     else:
         print("You lost")
-
+        
 firstround = {'Player': 'sarah', 'score': 6}
 print(f"The winner of the firstround is {firstround['Player']} with {firstround['score']} points.")
