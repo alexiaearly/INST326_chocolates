@@ -1,6 +1,7 @@
 """ A student class taking enhancer.
 """
 from argparse import ArgumentParser
+import sys
     
 class Notes():
     def method1():
