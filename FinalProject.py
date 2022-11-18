@@ -4,10 +4,10 @@ from argparse import ArgumentParser
 import sys
     
 class Notes():
-    """This is a class for 
+    """This is a class thats takes a students notes uploaded as text file
     
     Attributes:
-        file: text file
+        file: text file containing students notes for their desired course
     """
 
 
