@@ -4,20 +4,14 @@ from argparse import ArgumentParser
 import sys
     
 class Notes():
-<<<<<<< HEAD
-    """
+    """This is a class for 
     
     Attributes:
-        name(str): person's name
-        gender(str): person's gender
-        parents(list of Person): person's parents, may be empty
-        spouse(Person): person's spouse, may be empty
+        file: text file
     """
 
-    def method1():
-=======
+
     def __init__(self, file):
->>>>>>> ce8f156d9f0ea37c28ea58d87022468da5f88221
         pass
     def add_courses(self):
         pass
