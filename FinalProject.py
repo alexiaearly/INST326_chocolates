@@ -7,17 +7,25 @@ class Notes():
     """This is a class thats takes a students notes uploaded as text file
     
     Attributes:
-        file: text file containing students notes for their desired course
+        file(txt): text file containing students notes for their desired course
     """
 
 
     def __init__(self, file):
+        """ Initializes note object using a text file containing students notes 
+        """
         pass
     def add_courses(self):
+        """takes the course name and adds it to the notes
+        """
         pass
     def add_chapter(self):
+        """ takes the chapter of the course and adds it to the notes
+        """
         pass
     def pull_definition(self):
+        """takes the definitions from a course and adds it to the notes
+        """
         pass
 
 class Planner():
