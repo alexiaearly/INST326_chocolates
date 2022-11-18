@@ -4,21 +4,26 @@ from argparse import ArgumentParser
 import sys
     
 class Notes():
-    def method1():
+    def __init__(self, file):
         pass
-    def method2():
+    def add_courses(self):
         pass
-    def method3():
+    def add_chapter(self):
+        pass
+    def pull_definition(self):
         pass
 
 class Planner():
-    def method1():
+    def __init__(self):
         pass
-    def method2():
+    def to_do(self):
         pass
-    def method3():
+    def is_assignment_due(self, date):
         pass
  
+def main():
+    pass
+
 def parse_args(arglist):   
     parser = ArgumentParser()
     parser.add_argument()
@@ -26,9 +31,6 @@ def parse_args(arglist):
     parser.add_argument()
     args = parser.parse_args(arglist)
     return args
-
-def main():
-    pass
 
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
