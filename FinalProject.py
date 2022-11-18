@@ -29,7 +29,11 @@ class Notes():
         pass
 
 class Planner():
-    """
+    """Creates a schedule for students to know their uncomplete tasks and 
+    changes their schedule to accomadate to assignments that will soon be due. 
+    
+    Attributes:
+        date(datetime): stores an instant in time 
     """
     def __init__(self):
         """
