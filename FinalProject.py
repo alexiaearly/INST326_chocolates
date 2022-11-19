@@ -87,8 +87,8 @@ class Planner():
         date(datetime): stores an instant in time
         
         Returns:
-        A list with the assignments due closer to the current date at the top 
-        of the list. 
+        A list that moves the assignments whose date is closer to the current
+        near the top of the to do list. 
         """
         pass
  
