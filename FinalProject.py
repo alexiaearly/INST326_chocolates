@@ -25,7 +25,7 @@ class Notes():
         """takes the course name and adds it to the notes
         
         Args:
-            str: name of the course
+            str(courses): name of the course
     
         Returns:   
             Dict: Dictionary containing the name of the course
@@ -36,7 +36,7 @@ class Notes():
         """ takes the chapter of the course and adds it to the notes
         
          Args:
-            str: chapter of the course 
+            str(chapter): chapter of the course 
     
         Returns:   
             Dict: Dictionary containing the chapter of the course
