@@ -63,15 +63,32 @@ class Planner():
         date(datetime): stores an instant in time 
     """
     def __init__(self):
-        """
+        """ Initializes a planner object. 
+        
+        Side Effects:
+        Sets a new value to the object's attribute. 
         """
         pass
-    def to_do(self):
-        """
+    def to_do(self, need_to_complete):
+        """ Creates a list for the user on what they need to complete. 
+        Args:
+         need_to_complete(file): Contains are necessary tasks that are still 
+         undone
+        Returns:
+        A list containing all assignments that the user needs to complete. 
         """
         pass
     def is_assignment_due(self, date):
-        """
+        """ Creates a list that will compare the current date with the due 
+        date of an assignment to see which ones need to be completed as soon as
+        possible. 
+        
+        Args:
+        date(datetime): stores an instant in time
+        
+        Returns:
+        A list with the assignments due closer to the current date at the top 
+        of the list. 
         """
         pass
  
