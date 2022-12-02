@@ -7,7 +7,8 @@ class Notes():
     """This is a class thats takes a students notes uploaded as text file
     
     Attributes:
-        file(txt): a path to a text file containing students notes for their desired course
+        file(txt): a path to a text file containing students notes for their 
+        desired course
     """
 
 
@@ -15,39 +16,40 @@ class Notes():
         """ Initializes note object using a text file containing students notes
         
         Args:
-         file(txt): a path to the text file a path to a text file containing students notes for their desired course
+         file(txt): a path to the text file a path to a text file containing 
+         students notes for their desired course
     
         Side effects:
             Creates an attribute 
         """
         pass
-    def add_courses(self):
+    def add_courses(self, course):
         """takes the course name and adds it to the notes
         
         Args:
-            str(courses): name of the course
+            course(str): name of the course
     
         Returns:   
             Dict: Dictionary containing the name of the course
           
         """
         pass
-    def add_chapter(self):
+    def add_chapter(self, chapter):
         """ takes the chapter of the course and adds it to the notes
         
          Args:
-            str(chapter): chapter of the course 
+            chapter(str): chapter of the course 
     
         Returns:   
             Dict: Dictionary containing the chapter of the course
           
         """
         pass
-    def pull_definition(self):
+    def pull_definition(self, name):
         """takes the definitions from a course and adds it to the notes
         
          Args:
-            str: name of the course
+            name(str): name of the course
     
         Returns:   
             list: A list of the definitions
@@ -66,16 +68,16 @@ class Planner():
         """ Initializes a planner object. 
         
         Side Effects:
-        Sets a new value to the object's attribute. 
+            Sets a new value to the object's attribute. 
         """
         pass
     def to_do(self, need_to_complete):
         """ Creates a list for the user on what they need to complete. 
         Args:
-         need_to_complete(file): Contains are necessary tasks that are still 
-         undone
+            need_to_complete(file): Contains are necessary tasks that are still 
+            undone
         Returns:
-        A list containing all assignments that the user needs to complete. 
+            A list containing all assignments that the user needs to complete. 
         """
         pass
     def is_assignment_due(self, date):
@@ -84,11 +86,11 @@ class Planner():
         possible. 
         
         Args:
-        date(datetime): stores an instant in time
+            date(datetime): stores an instant in time
         
         Returns:
-        A list with the assignments due closer to the current date at the top 
-        of the list. 
+            A list with the assignments due closer to the current date at the 
+            top of the list. 
         """
         pass
  
