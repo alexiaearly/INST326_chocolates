@@ -20,6 +20,7 @@ class Notes():
         Side effects:
             Creates an attribute 
         """
+        self.file = file
         pass
     def add_courses(self):
         """takes the course name and adds it to the notes
