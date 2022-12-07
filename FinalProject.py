@@ -11,7 +11,6 @@ class Notes():
         desired course
     """
 
-
     def __init__(self, file):
         """ Initializes note object using a text file containing students notes
         
@@ -34,18 +33,7 @@ class Notes():
           
         """
         pass
-    def add_chapter(self, chapter):
-        """ takes the chapter of the course and adds it to the notes
-        
-         Args:
-            chapter(str): chapter of the course 
-    
-        Returns:   
-            Dict: Dictionary containing the chapter of the course
-          
-        """
-        pass
-    def pull_definition(self, name):
+    def add_definition(self, name):
         """takes the definitions from a course and adds it to the notes
         
          Args:
@@ -80,33 +68,14 @@ class Planner():
             A list containing all assignments that the user needs to complete. 
         """
         pass
-    def is_assignment_due(self, date):
-        """ Creates a list that will compare the current date with the due 
-        date of an assignment to see which ones need to be completed as soon as
-        possible. 
-        
-        Args:
-            date(datetime): stores an instant in time
-        
-        Returns:
-            A list with the assignments due closer to the current date at the 
-            top of the list. 
-        """
+    def remove_assignment(self):
         pass
- 
-def main(file, to_dos=None):
-    """Creates an instance of Notes class for file. Creates an instance of 
-    Planner to create the base of student works.
-    
-    Args:
-        file(txt): a path to the text file
-        Optional:
-            to_dos(str): string of what user has to do
-    
-    Side effects:
-        Creates instances of Planner and Notes class
-    """
+
+def main(x, to_dos=None):
     pass
+    
+    
+        
 
 def parse_args(arglist):   
     """Parse command-line arguments.
