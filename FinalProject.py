@@ -7,19 +7,20 @@ class Notes():
     """This is a class thats takes a students notes uploaded as text file
     
     Attributes:
-        file(txt): a path to a text file containing students notes for their desired course
+        file(txt): a path to a text file containing students notes for their 
+        desired course
     """
 
-    def __init__(self, file):
+    def __init__(self):
         """ Initializes note object using a text file containing students notes
         
         Args:
-         file(txt): a path to the text file a path to a text file containing students notes for their desired course
+         file(txt): a path to the text file a path to a text file containing 
+         students notes for their desired course
     
         Side effects:
             Creates an attribute 
         """
-        self.file = file
         pass
     def add_courses(self):
         """takes the course name and adds it to the notes
@@ -32,18 +33,11 @@ class Notes():
           
         """
         pass
-    def add_chapter(self):
-        """ takes the chapter of the course and adds it to the notes
-        
-         Args:
-            str: chapter of the course 
     
-        Returns:   
-            Dict: Dictionary containing the chapter of the course
-          
-        """
+    def add_definition(self):
         pass
-    def pull_definition(self):
+
+    def view_definition(self):
         """takes the definitions from a course and adds it to the notes
         
          Args:
@@ -79,14 +73,11 @@ class Planner():
         """
         pass
  
-def main(file, to_do=None):
+def main(x, to_do=None):
     """Creates an instance of Notes class for file. Creates an instance of 
     Planner to create the base of student works.
     
     Args:
-        file(txt): a path to the text file
-        Optional:
-            to_dos(str): string of what user has to do
     
     Side effects:
         Creates instances of Planner and Notes class
