@@ -10,6 +10,7 @@ class Notes():
         file(txt): a path to a text file containing students notes for their desired course
     """
 
+
     def __init__(self, file):
         """ Initializes note object using a text file containing students notes
         
@@ -78,8 +79,21 @@ class Planner():
         A list containing all assignments that the user needs to complete. 
         """
         pass
+    def is_assignment_due(self, date):
+        """ Creates a list that will compare the current date with the due 
+        date of an assignment to see which ones need to be completed as soon as
+        possible. 
+        
+        Args:
+        date(datetime): stores an instant in time
+        
+        Returns:
+        A list that moves the assignments whose date is closer to the current
+        near the top of the to do list. 
+        """
+        pass
  
-def main(file, to_do=None):
+def main(file, to_dos=None):
     """Creates an instance of Notes class for file. Creates an instance of 
     Planner to create the base of student works.
     
@@ -91,7 +105,6 @@ def main(file, to_do=None):
     Side effects:
         Creates instances of Planner and Notes class
     """
-    
     pass
 
 def parse_args(arglist):   
