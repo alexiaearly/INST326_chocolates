@@ -14,40 +14,54 @@ class Notes():
     def __init__(self):
         """ Initializes note object using a text file containing students notes
         
-        Args:
-         file(txt): a path to the text file a path to a text file containing 
-         students notes for their desired course
-    
         Side effects:
             Creates an attribute 
         """
-        pass
-    def add_courses(self):
+        self.Note_dict = {}
+    def add_courses(self, course):
         """takes the course name and adds it to the notes
         
         Args:
-            str: name of the course
+            course (str): name of the course
     
         Returns:   
-            Dict: Dictionary containing the name of the course
-          
+            Note_dict (dict): Dictionary containing the name of the course
         """
-        pass
+        if type(course) is not str:
+            raise TypeError('The course needs to be a str')
+        
+        self.Note_dict[course] = None
     
-    def add_definition(self):
-        pass
+    def add_definition(self, course, definition):
+        if type(course) and type(definition) is not str:
+            raise TypeError('The definition and course need to be str')
+        
+        if course in self.Note_dict:
+            self.Note_dict[course] = definition
+        else:
+            Notes.add_courses(course)
+            self.Note_dict[course] = definition
+            
+        return self.Note_dict[course] 
 
-    def view_definition(self):
+    def view_definitions(self, course):
         """takes the definitions from a course and adds it to the notes
         
          Args:
-            str: name of the course
+            course (str): name of the course
     
         Returns:   
             list: A list of the definitions
+            or a string that indicates the course is not in your notes
           
         """
-        pass
+        if type(course) is not str:
+            raise TypeError('The course needs to be a str')
+        
+        if course in self.Note_dict:
+            return f"{course} : {self.Note_dict[course]}"
+        else:
+            return f"{course} is not in your notes"
 
 class Planner():
     """Creates a schedule for students to know their uncomplete tasks and 
