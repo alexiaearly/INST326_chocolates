@@ -32,14 +32,14 @@ class Notes():
         
         self.Note_dict[course] = None
     
-    def add_definition(self, course, definition):
+    def add_definition(self, course, definition, notes):
         if type(course) and type(definition) is not str:
             raise TypeError('The definition and course need to be str')
         
         if course in self.Note_dict:
             self.Note_dict[course] = definition
         else:
-            Notes.add_courses(course)
+            notes.add_courses(course)
             self.Note_dict[course] = definition
             
         return self.Note_dict[course] 
@@ -76,7 +76,8 @@ class Planner():
         Side Effects:
         Sets a new value to the object's attribute. 
         """
-        pass
+        self.planner = {}
+        
     def to_do(self, need_to_complete):
         """ Creates a list for the user on what they need to complete. 
         Args:
