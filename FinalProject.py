@@ -18,7 +18,7 @@ class Notes():
         """
         self.Note_dict = {}
     def add_courses(self, course):
-        """ Takes the course name and adds it to the notes
+        """ The course name and adds it to the notes
         
         Args:
             course (str): name of the course
@@ -110,7 +110,7 @@ def main(name):
     pass
 
 def parse_args(arglist):   
-    """Parse command-line arguments.
+    """ Parse command-line arguments.
     
     Expects one (not sure what others) mandatory argument for path to file
     
