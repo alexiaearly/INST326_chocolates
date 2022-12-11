@@ -85,15 +85,30 @@ class Planner():
         """
         self.planner = {}
 
-    def to_do(self, need_to_complete):
+    def to_do(self, assignments, duedate):
         """ Creates a list for the user on what they need to complete. 
         Args:
-         need_to_complete(file): Contains are necessary tasks that are still 
-         undone
+         assignment (str): name of the assignment due
+         
+         duedate: date the assignment is due
+        
         Returns:
         A list containing all assignments that the user needs to complete. 
         """
-        pass
+        self.planner[assignments] = duedate
+        
+        sort_assignments = sorted(self.planner.items(), key=lambda x: x[1])
+        return sort_assignments
+    
+    def due_soon(self):
+        """ Creates a list for the user on the next assignments due
+        
+        Returns:
+            list of strings
+        """
+        duenext = [x for x, y in self.planner.items() if y < 3]
+        return duenext
+        
     
  
 def main(name):
