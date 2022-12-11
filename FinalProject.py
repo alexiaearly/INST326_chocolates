@@ -37,13 +37,12 @@ class Notes():
         
         self.Note_dict[course] = []
     
-    def add_definition(self, course, definition, notes):
+    def add_definition(self, course, definition):
         """ Adds definitions to a course
         
         Args:
             course (str): the name of the course
             definition (str): the definition
-            notes (obj): an instance of the notes class
         
         Returns:
             An f string that prints the course and its definitions
@@ -57,7 +56,7 @@ class Notes():
         if course in self.Note_dict:
             self.Note_dict[course].append(definition)
         else:
-            notes.add_courses(course)
+            self.add_courses(course)
             self.Note_dict[course].append(definition)
             
         return f"{course}: {self.Note_dict[course]}"
