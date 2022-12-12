@@ -7,61 +7,68 @@ class Notes():
     """This is a class thats takes a students notes uploaded as text file
     
     Attributes:
-        file(txt): a path to a text file containing students notes for their 
-        desired course
+        Note_dict (dict): a dictionary of notes
     """
 
     def __init__(self):
-        """ Initializes note object using a text file containing students notes
+        """ Initializes note object using a dictionary containing students notes
         
         Side effects:
-            Creates an attribute 
+            Initializes a dictionary Note_dict to store courses and definitions
         """
         self.Note_dict = {}
     def add_courses(self, course):
-        """takes the course name and adds it to the notes
+        """ The course name and adds it to the notes
         
         Args:
             course (str): name of the course
     
         Returns:   
             Note_dict (dict): Dictionary containing the name of the course
+        
+        Side effects:
+            Adds a new key to the dictionary
+        
+        Raises:
+            TypeError if the course is not a string
         """
         if type(course) is not str:
             raise TypeError('The course needs to be a str')
         
-        self.Note_dict[course] = None
+        self.Note_dict[course] = []
     
-    def add_definition(self, course, definition, notes):
+    def add_definition(self, course, definition):
+        """ Adds definitions to a course
+        
+        Args:
+            course (str): the name of the course
+            definition (str): the definition
+        
+        Returns:
+            An f string that prints the course and its definitions
+            
+        Raises:
+            TypeError if the course and definitoin are not strings
+        """
         if type(course) and type(definition) is not str:
             raise TypeError('The definition and course need to be str')
         
         if course in self.Note_dict:
-            self.Note_dict[course] = definition
+            self.Note_dict[course].append(definition)
         else:
-            notes.add_courses(course)
-            self.Note_dict[course] = definition
+            self.add_courses(course)
+            self.Note_dict[course].append(definition)
             
-        return self.Note_dict[course] 
+        return f"{course}: {self.Note_dict[course]}"
 
-    def view_definitions(self, course):
-        """takes the definitions from a course and adds it to the notes
+    def view_definitions(self):
+        """ Takes the definitions from all courses and adds it to a text file
         
-         Args:
-            course (str): name of the course
-    
-        Returns:   
-            list: A list of the definitions
-            or a string that indicates the course is not in your notes
-          
+        Side effects:
+            Creates a text file 
         """
-        if type(course) is not str:
-            raise TypeError('The course needs to be a str')
-        
-        if course in self.Note_dict:
-            return f"{course} : {self.Note_dict[course]}"
-        else:
-            return f"{course} is not in your notes"
+        with open('mynotes.txt', 'w') as f:
+            f.write(self.Note_dict)
 
 class Planner():
     """Creates a schedule for students to know their uncomplete tasks and 
@@ -77,51 +84,47 @@ class Planner():
         Sets a new value to the object's attribute. 
         """
         self.planner = {}
-        
-    def to_do(self, need_to_complete):
+
+    def to_do(self, assignments, duedate):
         """ Creates a list for the user on what they need to complete. 
         Args:
-         need_to_complete(file): Contains are necessary tasks that are still 
-         undone
+         assignment (str): name of the assignment due
+         
+         duedate: date the assignment is due
+        
         Returns:
         A list containing all assignments that the user needs to complete. 
         """
-        pass
+        self.planner[assignments] = duedate
+        
+        sort_assignments = sorted(self.planner.items(), key=lambda x: x[1])
+        return sort_assignments
+    
+    def due_soon(self):
+        """ Creates a list for the user on the next assignments due
+        
+        Returns:
+            list of strings
+        """
+        duenext = [x for x, y in self.planner.items() if y < 3]
+        return duenext
+        
+    
  
 def main(name):
-    """Collects information from the user about what information they would
-    like to work with. 
+    """Creates an instance of Notes class for file. Creates an instance of 
+    Planner to create the base of student works.
     
-    Args: 
-        User: represents th us
+    Args:
     
+    Side effects:
+        Creates instances of Planner and Notes class
     """
-    name = input("Enter your name")
-    welcome = input(("Hi! " + name + ",Are you interested in seeing your notes"+ 
-                     "or To-Do List Assignments Today?"))
-    notes = Notes()
-    planner = Planner()
-    if welcome == "Notes":
-        note_input = input("type viewdef, adddef, or addcourse")
-        if note_input == "viewdef":
-            notes.view_definitions()
-        elif note_input == "adddef":
-            course = input("Type the name of your course: ")
-            definition = input("Type the definition for the course: ")
-            notes.add_definition(course, definition)
-        elif note_input == "addcourse":
-            course = input("Type the name of your course: ")
-            notes.add_courses(course)
-        else:
-            raise ValueError("Must be either viewdef, adddef, or addcourse")
-                  
-    if welcome == "To-Do":
-        todo_assignment = input()
-       planner.to_do
-        
+    
+    pass
 
 def parse_args(arglist):   
-    """Parse command-line arguments.
+    """ Parse command-line arguments.
     
     Expects one (not sure what others) mandatory argument for path to file
     
@@ -131,7 +134,9 @@ def parse_args(arglist):
     Returns:
         namespace: the parsed args as a namespace
     """
-    pass
+    parser = ArgumentParser()
+    parser.add_argument("name", help="name of user")
+    return parser.parse_args(arglist)
 
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
