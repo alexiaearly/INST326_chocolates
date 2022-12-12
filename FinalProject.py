@@ -69,7 +69,7 @@ class Notes():
         """
         with open('mynotes.json', 'w') as f:
             json.dump(self.Note_dict, f)
-                
+    #Alexia (entire class)                
 
 class Planner():
     """ Creates a schedule for students to know their uncomplete tasks and 
@@ -167,7 +167,9 @@ def parse_args(arglist):
     parser = ArgumentParser()
     parser.add_argument("name", help="name of user")
     return parser.parse_args(arglist)
+    #Alexia
 
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     main(args.name)
+    #Alexia
