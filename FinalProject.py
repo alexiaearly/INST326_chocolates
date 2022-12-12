@@ -112,13 +112,13 @@ class Planner():
     
  
 def main(name):
-    """Creates an instance of Notes class for file. Creates an instance of 
-    Planner to create the base of student works.
+    """utilizes user input to use planner and notes class
     
     Args:
+    name(str): Represents ths user's name 
     
     Side effects:
-        Creates instances of Planner and Notes class
+        Prints their desired results from either Notes or To-Do
     """
     name = input("Enter your name")
     welcome = input("Hi!" + name + ",Are you interested in seeing your Notes" +
