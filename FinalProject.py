@@ -70,7 +70,7 @@ class Notes():
         with open('mynotes.json', 'w') as f:
             json.dump(self.Note_dict, f)
                 
-
+#Kosy Egbe worked on the class Planner
 class Planner():
     """ Creates a schedule for students to know their uncomplete tasks and 
     changes their schedule to accomadate to assignments that will soon be due. 
