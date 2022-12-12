@@ -5,7 +5,7 @@ import sys
 import json
     
 class Notes():
-    """This is a class thats takes a students notes uploaded as text file
+    """ This is a class thats takes a students notes uploaded as text file
     
     Attributes:
         Note_dict (dict): a dictionary of notes
@@ -25,8 +25,8 @@ class Notes():
             course (str): name of the course
     
         Returns:   
-            Note_dict (dict): Dictionary containing the name of the course
-        
+            Passes the method
+                    
         Side effects:
             Adds a new key to the dictionary
         
@@ -46,8 +46,8 @@ class Notes():
             definition (str): the definition
         
         Returns:
-            An f string that prints the course and its definitions
-            
+            Passes the method
+                    
         Raises:
             TypeError if the course and definitoin are not strings
         """
@@ -64,7 +64,7 @@ class Notes():
         """ Takes the definitions from all courses and adds it to a text file
         
         Side effects:
-            Creates a text file 
+            Creates a JSON file 
         """
         with open('mynotes.json', 'w') as f:
             json.dump(self.Note_dict, f)
@@ -80,20 +80,20 @@ class Planner():
     def __init__(self):
         """ Initializes a planner object. 
         
-        Side Effects:
-        Initializes a dictionary planner to store assignment due and due date
+        Side effects:
+            Initializes a dictionary planner to store assignment due and due 
+            date
         """
         self.planner = {}
 
     def to_do(self, assignments, duedate):
-        """ Creates a list for the user on what they need to complete. 
+        """ Creates a dictionary for the user on what they need to complete. 
         Args:
-         assignment (str): name of the assignment due
-         
-         duedate: date the assignment is due
+            assignment (str): name of the assignment due
+            duedate (int): date the assignment is due
         
         Returns:
-        A Dict containing all assignments that the user needs to complete. 
+            A dict containing all assignments that the user needs to complete. 
         """
         self.planner[assignments] = duedate
         
@@ -104,7 +104,7 @@ class Planner():
         """ Creates a list for the user on the next assignments due
         
         Returns:
-            list of strings
+            List of strings
         """
         duenext = [x for x, y in self.planner.items() if y < 3]
         return duenext
@@ -112,10 +112,10 @@ class Planner():
     
  
 def main(name):
-    """utilizes user input to use planner and notes class
+    """ Utilizes user input to use planner and notes class
     
     Args:
-    name(str): Represents ths user's name 
+        name (str): Represents ths user's name 
     
     Side effects:
         Prints their desired results from either Notes or To-Do
