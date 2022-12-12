@@ -18,6 +18,7 @@ class Notes():
             Initializes a dictionary Note_dict to store courses and definitions
         """
         self.Note_dict = {}
+        
     def add_courses(self, course):
         """ The course name and adds it to the notes
         
