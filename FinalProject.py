@@ -69,13 +69,8 @@ class Notes():
         """
         with open('mynotes.json', 'w') as f:
             json.dump(self.Note_dict, f)
-<<<<<<< HEAD
     #Alexia (entire class)                
 
-=======
-                
-#Kosy Egbe worked on the class Planner
->>>>>>> 56d43f693a07d4819b0f5e0464d3ab0cecb0b2b9
 class Planner():
     """ Creates a schedule for students to know their uncomplete tasks and 
     changes their schedule to accomadate to assignments that will soon be due. 
@@ -114,7 +109,7 @@ class Planner():
         """
         duenext = [x for x, y in self.planner.items() if y < 3]
         print(duenext)
-        
+    #Kosy Egbe (entire class)    
     
  
 def main(name):
@@ -157,6 +152,7 @@ def main(name):
             print("Goodbye!")
             notes.view_definitions()
             return
+    #Kennedi (main function)
 
 def parse_args(arglist):   
     """ Parse command-line arguments.
