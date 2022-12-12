@@ -108,7 +108,7 @@ class Planner():
             List of strings
         """
         duenext = [x for x, y in self.planner.items() if y < 3]
-        return duenext
+        print(duenext)
         
     
  
@@ -149,7 +149,7 @@ def main(name):
             elif todo_input == "DS":
                 planner.due_soon()
         if welcome == "q":
-            print("Goodbye")
+            print("Goodbye!")
             notes.view_definitions()
             return
 
