@@ -2,6 +2,7 @@
 """
 from argparse import ArgumentParser
 import sys
+import json
     
 class Notes():
     """This is a class thats takes a students notes uploaded as text file
@@ -52,14 +53,12 @@ class Notes():
         """
         if type(course) and type(definition) is not str:
             raise TypeError('The definition and course need to be str')
-        
         if course in self.Note_dict:
             self.Note_dict[course].append(definition)
         else:
             self.add_courses(course)
-            self.Note_dict[course].append(definition)
-            
-        return f"{course}: {self.Note_dict[course]}"
+            self.Note_dict[course].append(definition)   
+        return 
 
     def view_definitions(self):
         """ Takes the definitions from all courses and adds it to a text file
@@ -67,15 +66,16 @@ class Notes():
         Side effects:
             Creates a text file 
         """
-        with open('mynotes.txt', 'w') as f:
-            f.write(self.Note_dict)
+        with open('mynotes.json', 'w') as f:
+            json.dump(self.Note_dict, f)
+                
 
 class Planner():
-    """Creates a schedule for students to know their uncomplete tasks and 
+    """ Creates a schedule for students to know their uncomplete tasks and 
     changes their schedule to accomadate to assignments that will soon be due. 
     
     Attributes:
-        date(datetime): stores an instant in time 
+        planner(dict): a dictionary containing assignments and due dates
     """
     def __init__(self):
         """ Initializes a planner object. 
@@ -120,35 +120,37 @@ def main(name):
     Side effects:
         Prints their desired results from either Notes or To-Do
     """
-    name = input("Enter your name")
-    welcome = input("Hi!" + name + ",Are you interested in seeing your Notes" +
-                    "or To-Do assignments?")
     notes = Notes()
     planner = Planner()
-    if welcome == "Notes":
-        note_input = input("Type viewdef, adddef, or addcourse")
-        if note_input == "viewdef":
+    while True:
+        welcome = input("Hi! " + name + ", are you interested in seeing your" +
+                        " Notes or To-Do assignments? To quit type q ")
+        if welcome == "Notes":
+            note_input = input("Type viewdef, adddef, or addcourse: ")
+            if note_input == "viewdef":
+                notes.view_definitions()
+                
+            elif note_input == "adddef":
+                course = input("Type the name of your course: ")
+                definition = input("Type the definition for the course: ")
+                notes.add_definition(course, definition)
+                
+            elif note_input == "addcourse":
+                course = input("Type the name of your course: ")
+                notes.add_courses()
+        if welcome == "To-Do":
+            todo_input = input("Type AA for add assignment or"+
+                            " DS to view due soon: ")
+            if todo_input == "AA":
+                assignment = input("Type the assignment name: ")
+                date = input("How many days until it's due?: ")
+                planner.to_do(assignment, date)
+            elif todo_input == "DS":
+                planner.due_soon()
+        if welcome == "q":
+            print("Goodbye")
             notes.view_definitions()
-        elif note_input == "adddef":
-            course = input("Type the name of your course: ")
-            definition = input("Type the definition for the course: ")
-            notes.add_definition(course, definition)
-        elif note_input == "addcourse":
-            course = input("Type the name of your course: ")
-            notes.add_courses
-        else:
-            raise ValueError("Must be viewdef, adddef, or addcourse")
-    if welcome == "To-Do":
-        todo_input = input("Type AA for add assignment or"+
-                           " DS to view due soon: ")
-        if todo_input == "AA":
-            assignment = input("Type the assignment name: ")
-            date = input("How many days until it's due?: ")
-            planner.to_do(assignment, date)
-        elif todo_input == "DS":
-            planner.due_soon()
-        else:
-            raise ValueError("Must be AA or DS")
+            return
 
 def parse_args(arglist):   
     """ Parse command-line arguments.
@@ -167,4 +169,4 @@ def parse_args(arglist):
 
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
-    main(args.file)
+    main(args.name)
