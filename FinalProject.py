@@ -120,8 +120,35 @@ def main(name):
     Side effects:
         Creates instances of Planner and Notes class
     """
-    
-    pass
+    name = input("Enter your name")
+    welcome = input("Hi!" + name + ",Are you interested in seeing your Notes" +
+                    "or To-Do assignments?")
+    notes = Notes()
+    planner = Planner()
+    if welcome == "Notes":
+        note_input = input("Type viewdef, adddef, or addcourse")
+        if note_input == "viewdef":
+            notes.view_definitions()
+        elif note_input == "adddef":
+            course = input("Type the name of your course: ")
+            definition = input("Type the definition for the course: ")
+            notes.add_definition(course, definition)
+        elif note_input == "addcourse":
+            course = input("Type the name of your course: ")
+            notes.add_courses
+        else:
+            raise ValueError("Must be viewdef, adddef, or addcourse")
+    if welcome == "To-Do":
+        todo_input = input("Type AA for add assignment or"+
+                           " DS to view due soon: ")
+        if todo_input == "AA":
+            assignment = input("Type the assignment name: ")
+            date = input("How many days until it's due?: ")
+            planner.to_do(assignment, date)
+        elif todo_input == "DS":
+            planner.due_soon()
+        else:
+            raise ValueError("Must be AA or DS")
 
 def parse_args(arglist):   
     """ Parse command-line arguments.
