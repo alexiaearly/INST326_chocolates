@@ -88,17 +88,37 @@ class Planner():
         """
         pass
  
-def main(x, to_do=None):
-    """Creates an instance of Notes class for file. Creates an instance of 
-    Planner to create the base of student works.
+def main(name):
+    """Collects information from the user about what information they would
+    like to work with. 
     
-    Args:
+    Args: 
+        User: represents th us
     
-    Side effects:
-        Creates instances of Planner and Notes class
     """
-    
-    pass
+    name = input("Enter your name")
+    welcome = input(("Hi! " + name + ",Are you interested in seeing your notes"+ 
+                     "or To-Do List Assignments Today?"))
+    notes = Notes()
+    planner = Planner()
+    if welcome == "Notes":
+        note_input = input("type viewdef, adddef, or addcourse")
+        if note_input == "viewdef":
+            notes.view_definitions()
+        elif note_input == "adddef":
+            course = input("Type the name of your course: ")
+            definition = input("Type the definition for the course: ")
+            notes.add_definition(course, definition)
+        elif note_input == "addcourse":
+            course = input("Type the name of your course: ")
+            notes.add_courses(course)
+        else:
+            raise ValueError("Must be either viewdef, adddef, or addcourse")
+                  
+    if welcome == "To-Do":
+        todo_assignment = input()
+       planner.to_do
+        
 
 def parse_args(arglist):   
     """Parse command-line arguments.
