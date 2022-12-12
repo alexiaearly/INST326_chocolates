@@ -81,7 +81,7 @@ class Planner():
         """ Initializes a planner object. 
         
         Side Effects:
-        Sets a new value to the object's attribute. 
+        Initializes a dictionary planner to store assignment due and due date
         """
         self.planner = {}
 
@@ -93,7 +93,7 @@ class Planner():
          duedate: date the assignment is due
         
         Returns:
-        A list containing all assignments that the user needs to complete. 
+        A Dict containing all assignments that the user needs to complete. 
         """
         self.planner[assignments] = duedate
         
